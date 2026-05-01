@@ -1,0 +1,56 @@
+:host {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+
+:host > .card-chambre {
+  flex: 1 1 auto;
+}
+
+.card-chambre {
+  box-shadow: 0 10px 40px #d4af3626;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.card-chambre:hover {
+  box-shadow: 0 14px 48px #d4af3633;
+}
+
+/* Image : coins hauts alignés sur la carte (overflow sur le parent) */
+.card-chambre__media {
+  border-radius: 24px 24px 0 0;
+}
+
+@media (min-width: 768px) {
+  .card-chambre__media {
+    border-radius: 28px 28px 0 0;
+  }
+}
+
+.card-chambre__media-gradient {
+  position: absolute;
+  inset: 0;
+  top: auto;
+  height: 45%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.12) 45%, transparent 100%);
+  pointer-events: none;
+}
+
+.card-chambre__btn {
+  background-color: #d4af37;
+  text-decoration: none;
+}
+
+.card-chambre__btn:hover {
+  background-color: #c49b2e;
+}
+
+.card-chambre__wa {
+  background-color: #25d366;
+}
+
+.card-chambre__wa:hover {
+  background-color: #20ba5a;
+}

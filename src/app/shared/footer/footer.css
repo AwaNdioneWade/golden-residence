@@ -1,0 +1,109 @@
+.site-footer {
+  /* Base sombre ; puis halo doré #D4AF3799 ; puis voile uniforme #00000033 (ordre = du haut vers le bas) */
+  background-color: #141414;
+  background-image:
+    linear-gradient(#00000033, #00000033),
+    radial-gradient(ellipse 85% 70% at 50% 35%, #d4af3799 0%, transparent 60%);
+}
+
+.footer-watermark {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  width: min(90vw, 28rem);
+  height: min(90vw, 28rem);
+  max-height: 70%;
+  opacity: 0.1;
+}
+
+.footer-crown-svg {
+  width: 100%;
+  height: 100%;
+  max-width: 20rem;
+  max-height: 20rem;
+}
+
+.footer-corner {
+  position: absolute;
+  bottom: 0;
+  width: 120px;
+  height: 120px;
+  opacity: 0.06;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.footer-corner::before,
+.footer-corner::after {
+  content: '';
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.footer-corner--left {
+  left: 0;
+  border-right: none;
+  border-top: none;
+  border-radius: 0 0 0 4px;
+}
+
+.footer-corner--left::before {
+  inset: 12px;
+  border-right: none;
+  border-top: none;
+  border-radius: 0 0 0 4px;
+}
+
+.footer-corner--left::after {
+  inset: 24px;
+  border-right: none;
+  border-top: none;
+  border-radius: 0 0 0 4px;
+}
+
+.footer-corner--right {
+  right: 0;
+  border-left: none;
+  border-top: none;
+  border-radius: 0 0 4px 0;
+}
+
+.footer-corner--right::before {
+  inset: 12px;
+  border-left: none;
+  border-top: none;
+  border-radius: 0 0 4px 0;
+}
+
+.footer-corner--right::after {
+  inset: 24px;
+  border-left: none;
+  border-top: none;
+  border-radius: 0 0 4px 0;
+}
+
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #c49b3b;
+}
+
+.footer-social {
+  display: flex;
+  color: #ffffff;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-social:hover {
+  color: #c49b3b;
+  transform: translateY(-2px);
+}
+
+.footer-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}

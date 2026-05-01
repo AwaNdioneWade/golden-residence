@@ -1,0 +1,38 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* Decorative elements */
+section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle, rgba(212, 175, 54, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* Ensure content is above decorative background */
+section > div {
+  position: relative;
+  z-index: 1;
+}
+
+/* Image styling */
+img {
+  min-height: 400px;
+  object-fit: cover;
+}
+
+@media (min-width: 1024px) {
+  img {
+    min-height: 500px;
+  }
+}
+

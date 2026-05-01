@@ -1,0 +1,12 @@
+.reservation-page {
+  min-height: 100%;
+}
+
+.reservation-input:focus {
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+button[type='submit']:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

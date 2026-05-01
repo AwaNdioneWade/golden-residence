@@ -1,0 +1,18 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* Hover effect enhancement */
+.bg-white:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+/* Ensure cards maintain aspect ratio */
+.bg-white {
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+}
+

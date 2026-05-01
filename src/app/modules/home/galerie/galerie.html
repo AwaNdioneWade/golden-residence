@@ -1,0 +1,50 @@
+<section class="py-16 md:py-24 bg-white">
+  <div class="container mx-auto px-4 md:px-[100px] max-w-[1240px]">
+    <!-- Section Header -->
+    <div class="text-center mb-12 md:mb-16 flex flex-col items-center justify-center">
+      <h2 class="flex flex-col text-3xl md:text-4xl lg:text-[52px] font-bold mb-4">
+        <span class="text-gray-900">Galerie Photos</span>
+        <!-- underline -->
+        <div class="border-[2px] border-b-[#D4AF36] h-[2px] w-[139px] mt-2"></div>
+      </h2>
+      <p class="text-gray-600 text-[12px] md:text-[16px] font-medium max-w-[585px] mx-auto leading-[160%]">
+        Découvrez nos espaces pensés pour votre détente.
+      </p>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-[20px]">
+      <!-- Large Image Left -->
+      <div class="">
+        <div class="rounded-[10px] overflow-hidden shadow-[10px] h-full">
+          <img 
+            [src]="images[0].src" 
+            [alt]="images[0].alt"
+            class="w-full h-full object-cover">
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-[20px]">
+          <!-- Top Right Image -->
+          <div class="">
+            <div class="rounded-[10px] overflow-hidden shadow-[10px] h-full">
+              <img 
+                [src]="images[1].src" 
+                [alt]="images[1].alt"
+                class="w-full h-full object-cover min-h-[300px] md:min-h-[390px]">
+            </div>
+          </div>
+    
+          <!-- Bottom Right Image -->
+          <div class="md:col-span-2">
+            <div class="rounded-[10px] overflow-hidden shadow-[10px] h-full">
+              <img 
+                [src]="images[2].src" 
+                [alt]="images[2].alt"
+                class="w-full h-full object-cover min-h-[300px] md:min-h-[390px]">
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>

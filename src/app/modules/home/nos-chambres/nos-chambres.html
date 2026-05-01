@@ -1,0 +1,25 @@
+<section class="bg-white py-16 md:py-24">
+  <div class="mx-auto max-w-7xl px-4 md:px-[100px]">
+    <!-- En-tête -->
+    <div class="mb-12 flex flex-col items-center text-center md:mb-16">
+      <h2 class="flex flex-col text-3xl font-bold text-gray-900 md:text-4xl lg:text-[52px]">
+        <span>Nos Chambres &amp; Suites</span>
+        <span
+          class="mx-auto mt-2 block h-0.5 w-[139px] rounded-full bg-[#D4AF37]"
+          aria-hidden="true"></span>
+      </h2>
+      <p
+        class="mx-auto mt-4 max-w-[585px] text-[12px] font-medium leading-[160%] text-gray-600 md:mt-5 md:text-base">
+        Nos chambres et suites allient confort, style et tranquillité pour vous offrir une expérience unique.
+      </p>
+    </div>
+
+    <!-- Grille 3 colonnes -->
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-5 lg:grid-cols-3 lg:gap-6">
+      <app-card-chambre
+        *ngFor="let chambre of chambres"
+        class="h-full min-h-0"
+        [chambre]="chambre"></app-card-chambre>
+    </div>
+  </div>
+</section>

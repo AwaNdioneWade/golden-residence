@@ -1,0 +1,72 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.contact-section {
+  background-color: #faf9f7;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(212, 175, 55, 0.04) 0%, transparent 45%),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.012) 2px,
+      rgba(0, 0, 0, 0.012) 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.012) 2px,
+      rgba(0, 0, 0, 0.012) 3px
+    );
+}
+
+.contact-card {
+  background-color: #fdfcfa;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.contact-form-column {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.contact-input:focus,
+.contact-input:focus-visible {
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+.contact-checkbox {
+  accent-color: #d4af37;
+}
+
+.contact-checkbox:checked {
+  background-color: #d4af37;
+  border-color: #d4af37;
+}
+
+button[type='submit']:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Carte Google : coins arrondis alignés sur la carte blanche */
+@media (max-width: 1023px) {
+  .contact-map-wrap {
+    border-radius: 0 0 1rem 1rem;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-map-wrap {
+    border-radius: 0 1.5rem 1.5rem 0;
+    overflow: hidden;
+    min-height: 100%;
+  }
+}
+
+.contact-wa:hover {
+  transform: scale(1.05);
+}

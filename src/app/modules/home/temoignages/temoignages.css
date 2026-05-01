@@ -1,0 +1,30 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* Decorative curved line (if needed) */
+section::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, rgba(212, 175, 54, 0.1) 0%, transparent 70%);
+  border-radius: 0 100% 0 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+section > div {
+  position: relative;
+  z-index: 1;
+}
+
+/* Card hover effect */
+.bg-white.rounded-lg:hover {
+  transform: translateY(-2px);
+  transition: transform 0.3s ease;
+}
+

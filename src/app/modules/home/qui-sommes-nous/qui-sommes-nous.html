@@ -1,0 +1,64 @@
+<section id="apropos" class="py-16 md:py-24 bg-white relative">
+    <img src="assets/images/bgRight.png" alt="decorative-element" class="absolute top-0 right-0">
+  <div class="container mx-auto px-4 md:px-[100px]">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+      <!-- Image Left -->
+      <div class="order-2 lg:order-1 flex justify-end items-end">
+        <div class="flex justify-end items-end rounded-tl-[10px] rounded-tr-[30px] rounded-bl-[30px] rounded-br-[10px] p-[20px] bg-[#EEB7AE33] overflow-hidden shadow-lg">
+          <img 
+            src="assets/images/qui-sommes-nous.png" 
+            alt="Golden Résidence - Vue extérieure"
+            class="w-full h-full max-h-[400px] object-cover rounded-tl-[20px] rounded-tr-[10px] rounded-bl-[10px] rounded-br-[20px]">
+        </div>
+      </div>
+
+      <!-- Content Right -->
+      <div class="order-1 lg:order-2">
+        <!-- Section Title -->
+        <div class="flex justify-end items-end">
+          <h3 class="text-[16px] md:text-[24px] font-bold mb-[4px] leading-[160%] text-[#D4AF36]">
+            Qui sommes-nous ?
+          </h3>
+        </div>
+
+        <!-- Main Heading -->
+        <h2 class="text-[16px] md:text-[24px] lg:text-[52px] font-bold mb-[41px] leading-[160%] text-[#1E1E1E]">
+          L'excellence signée C2M Groupe
+        </h2>
+
+        <!-- Description -->
+        <div class="mb-6 space-y-4">
+          <p class="text-[#000000] text-[14px] md:text-[18px] font-medium leading-[160%] mb-[20px]">
+            Golden Résidence est un établissement hôtelier moderne situé à Thiès, Zac Nguinth. Nous proposons des chambres confortables et élégantes, adaptées aux voyageurs d’affaires, aux familles et aux touristes.
+          </p>
+          
+          <!-- Vision Quote -->
+          <blockquote class="pl-[8px] border-l-[2px] border-[#D4AF36]">
+            <p class="text-[#6B7280] text-[14px] md:text-[18px] font-medium leading-[160%]">
+              "Notre vision: Offrir une expérience d'hébergement chaleureuse et mémorable."
+            </p>
+          </blockquote>
+        </div>
+
+        <!-- Feature Cards -->
+        <div class="flex flex-col gap-4 mt-8">
+          
+          <!-- Confort & Qualité - Second row, side by side -->
+          <div class="grid grid-cols-2 gap-[20px]">
+            <div 
+              *ngFor="let valeur of valeurs"
+              class="flex items-center gap-[10px] p-[10px] rounded-[3px] bg-[#D4AF36]"
+              style="background-color: #D4AF36;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C17.523 2 22 6.477 22 12C22 17.523 17.523 22 12 22ZM10.823 14.14L8.058 11.373L7 12.431L10.119 15.552C10.3065 15.7395 10.5608 15.8448 10.826 15.8448C11.0912 15.8448 11.3455 15.7395 11.533 15.552L17.485 9.602L16.423 8.54L10.823 14.14Z" fill="white"/>
+                </svg>                
+              <span class="text-white text-[14px] md:text-[20px] font-semibold leading-[160%]">
+                {{ valeur.label }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

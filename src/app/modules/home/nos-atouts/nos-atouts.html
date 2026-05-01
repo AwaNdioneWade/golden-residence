@@ -1,0 +1,37 @@
+<section class="py-16 md:py-24 bg-gray-50">
+  <div class="container mx-auto px-4 md:px-[100px]">
+    <!-- Section Header -->
+    <div class="text-center mb-12 md:mb-16 flex flex-col items-center justify-center">
+      <h2 class="flex flex-col text-3xl md:text-4xl lg:text-[52px] font-bold mb-4">
+        <span class="text-gray-900">Nos Atouts</span>
+        <!-- underline -->
+        <div class="border-[2px] border-b-[#D4AF36] h-[2px] w-[139px] mt-2"></div>
+      </h2>
+      <p class="text-gray-600 text-[12px] md:text-[16px] font-medium max-w-[585px] mx-auto leading-[160%]">
+        Chambres spacieuses (25-40m²) avec climatisation, literie premium & connexion Wi-Fi haut débit
+      </p>
+    </div>
+
+    <!-- Atouts Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <div 
+        *ngFor="let atout of atouts"
+        class="bg-white p-6 md:p-8 rounded-[20px] border border-[#D4AF36] transition-shadow duration-300">
+        <!-- Icon -->
+        <div class="mb-4 text-center flex justify-center">
+          <div [innerHTML]="atout.icon"></div>
+        </div>
+        
+        <!-- Title -->
+        <h3 class="text-xl md:text-2xl font-bold mb-3 text-center text-gray-900">
+          {{ atout.title }}
+        </h3>
+        
+        <!-- Description -->
+        <p class="text-gray-600 text-center leading-relaxed">
+          {{ atout.description }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

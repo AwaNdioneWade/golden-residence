@@ -1,0 +1,162 @@
+<div class="reservation-page">
+  <header class="reservation-hero border-b border-black/5 bg-gradient-to-b from-[#faf9f7] to-white pt-28 pb-10 md:pt-32 md:pb-14">
+    <div class="mx-auto max-w-6xl px-4 md:px-[100px]">
+      <nav class="mb-6 text-sm font-medium text-gray-500" aria-label="Fil d'Ariane">
+        <ol class="flex flex-wrap items-center gap-2">
+          <li><a routerLink="/" class="transition hover:text-[#D4AF37]">Accueil</a></li>
+          <li aria-hidden="true" class="text-gray-400">/</li>
+          <li><a routerLink="/chambres" class="transition hover:text-[#D4AF37]">Chambres &amp; Tarifs</a></li>
+          <li aria-hidden="true" class="text-gray-400">/</li>
+          <li class="text-gray-900">Réservation</li>
+        </ol>
+      </nav>
+
+      <h1 class="font-serif text-3xl font-bold text-[#1E1E1E] md:text-4xl lg:text-[2.5rem]">
+        Réserver votre séjour
+      </h1>
+      <p class="mt-3 max-w-2xl text-base text-gray-600 md:text-lg">
+        Remplissez le formulaire ci-dessous. Notre équipe vous confirmera la disponibilité et les tarifs dans les plus
+        brefs délais.
+      </p>
+      <span class="mt-4 inline-block h-0.5 w-[139px] rounded-full bg-[#D4AF37]" aria-hidden="true"></span>
+    </div>
+  </header>
+
+  <section class="bg-white py-10 md:py-14">
+    <div class="mx-auto max-w-6xl px-4 md:px-[100px]">
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
+        <!-- Résumé chambre -->
+        <aside class="lg:col-span-4" *ngIf="chambre as c">
+          <div
+            class="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-[0_10px_40px_#d4af3626] md:rounded-3xl">
+            <div class="relative aspect-[4/3] w-full overflow-hidden">
+              <img [src]="c.image" [alt]="c.title" class="h-full w-full object-cover" />
+            </div>
+            <div class="p-5">
+              <h2 class="text-lg font-bold text-[#1E1E1E] md:text-xl">{{ c.title }}</h2>
+              <p class="mt-2 text-sm leading-relaxed text-gray-600">{{ c.description }}</p>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Formulaire -->
+        <div class="lg:col-span-8">
+          <form
+            [formGroup]="reservationForm"
+            (ngSubmit)="onSubmit()"
+            class="reservation-card rounded-2xl border border-gray-100 bg-[#fdfcfa] p-6 shadow-[0_4px_40px_rgba(0,0,0,0.06)] md:rounded-3xl md:p-8 lg:p-10">
+            <div class="mb-6 flex flex-col gap-1.5">
+              <label for="chambreSlug" class="text-sm font-medium text-gray-500">Type de chambre</label>
+              <select
+                id="chambreSlug"
+                formControlName="chambreSlug"
+                (change)="onChambreSlugChange()"
+                class="w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20">
+                <option *ngFor="let opt of toutesLesChambres" [value]="opt.slug">{{ opt.title }}</option>
+              </select>
+            </div>
+
+            <div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
+              <div class="flex flex-col gap-1.5">
+                <label for="dateArrivee" class="text-sm font-medium text-gray-500">Date d'arrivée</label>
+                <input
+                  id="dateArrivee"
+                  type="date"
+                  formControlName="dateArrivee"
+                  [min]="minDateToday()"
+                  class="reservation-input w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20" />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label for="dateDepart" class="text-sm font-medium text-gray-500">Date de départ</label>
+                <input
+                  id="dateDepart"
+                  type="date"
+                  formControlName="dateDepart"
+                  [min]="minDateToday()"
+                  class="reservation-input w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20" />
+              </div>
+            </div>
+
+            <div class="mt-5 flex flex-col gap-1.5 md:mt-6">
+              <label for="personnes" class="text-sm font-medium text-gray-500">Nombre de personnes</label>
+              <input
+                id="personnes"
+                type="number"
+                formControlName="personnes"
+                min="1"
+                max="10"
+                class="reservation-input w-full max-w-[200px] rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20" />
+            </div>
+
+            <div class="mt-5 grid grid-cols-1 gap-5 md:mt-6 md:grid-cols-2 md:gap-6">
+              <div class="flex flex-col gap-1.5">
+                <label for="nom" class="text-sm font-medium text-gray-500">Nom complet</label>
+                <input
+                  id="nom"
+                  type="text"
+                  formControlName="nom"
+                  autocomplete="name"
+                  class="reservation-input w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20" />
+              </div>
+              <div class="flex flex-col gap-1.5">
+                <label for="telephone" class="text-sm font-medium text-gray-500">Téléphone</label>
+                <input
+                  id="telephone"
+                  type="tel"
+                  formControlName="telephone"
+                  placeholder="+221 …"
+                  autocomplete="tel"
+                  class="reservation-input w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20" />
+              </div>
+            </div>
+
+            <div class="mt-5 flex flex-col gap-1.5 md:mt-6">
+              <label for="email" class="text-sm font-medium text-gray-500">Adresse e-mail</label>
+              <input
+                id="email"
+                type="email"
+                formControlName="email"
+                autocomplete="email"
+                class="reservation-input w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20" />
+            </div>
+
+            <div class="mt-5 flex flex-col gap-1.5 md:mt-6">
+              <label for="message" class="text-sm font-medium text-gray-500">Message (optionnel)</label>
+              <textarea
+                id="message"
+                formControlName="message"
+                rows="4"
+                placeholder="Demandes particulières, horaire d'arrivée…"
+                class="reservation-input w-full resize-none rounded-lg border border-gray-200 bg-white px-4 py-3 text-gray-900 focus:border-[#D4AF37] focus:outline-none focus:ring-2 focus:ring-[#D4AF37]/20"></textarea>
+            </div>
+
+            <div class="mt-6 flex items-start gap-3 md:mt-8">
+              <input
+                id="acceptConditions"
+                type="checkbox"
+                formControlName="acceptConditions"
+                class="mt-1 h-5 w-5 shrink-0 rounded border-gray-300 text-[#D4AF37] focus:ring-[#D4AF37]"
+                style="accent-color: #d4af37" />
+              <label for="acceptConditions" class="cursor-pointer text-sm font-semibold text-gray-900">
+                J'accepte les conditions générales
+              </label>
+            </div>
+
+            <div class="mt-8 flex flex-wrap items-center gap-4">
+              <button
+                type="submit"
+                class="rounded-full bg-[#D4AF37] px-10 py-3.5 text-sm font-semibold text-white transition hover:bg-[#c49b2e] disabled:cursor-not-allowed disabled:opacity-60 md:text-base">
+                Envoyer la demande
+              </button>
+              <a
+                routerLink="/chambres"
+                class="text-sm font-medium text-gray-600 underline-offset-2 hover:text-[#D4AF37] hover:underline">
+                Retour aux chambres
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
