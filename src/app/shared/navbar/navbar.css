@@ -58,6 +58,12 @@
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
+@media (min-width: 768px) {
+  .navbar-hamburger {
+    display: none;
+  }
+}
+
 .navbar-mobile-menu {
   position: absolute;
   top: calc(100% + 10px);
